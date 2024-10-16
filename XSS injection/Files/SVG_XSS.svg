@@ -1,1 +1,14 @@
-?name=This a completely safe name - <svg/onload=alert()>
+<svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
+  <rect x="10" y="10" width="180" height="80" fill="#FFFFFF" rx="5"/>
+  
+  <!-- Simulate PNG-like effect -->
+  <filter id="png-effect" x="-50%" y="-50%" width="200%" height="200%">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 20 -10"/>
+  </filter>
+  
+  <g filter="url(#png-effect)">
+    <circle cx="100" cy="50" r="40" fill="#FF0000"/>
+    <text x="90" y="70" font-size="24">PNG</text>
+  </g>
+</svg>
